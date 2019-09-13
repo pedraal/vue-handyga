@@ -7,7 +7,9 @@ import App from './App.vue';
 Vue.use(Vuex);
 Vue.use(VueHandyGa);
 
-const options = {};
+const options = {
+  gaID: 'UA-119401025-6'
+};
 
 new Vue({
   el: '#app',

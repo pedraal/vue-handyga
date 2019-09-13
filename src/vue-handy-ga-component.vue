@@ -14,6 +14,9 @@ export default {
   },
   data() {
     return {};
+  },
+  mounted() {
+    this.$vueHandyGa.start();
   }
 };
 </script>
