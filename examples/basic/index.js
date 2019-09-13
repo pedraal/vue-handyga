@@ -7,9 +7,7 @@ import App from './App.vue';
 Vue.use(Vuex);
 Vue.use(VueHandyGa);
 
-const options = {
-  ui: false
-};
+const options = {};
 
 new Vue({
   el: '#app',

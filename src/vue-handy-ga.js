@@ -1,50 +1,33 @@
 import { devMode, registerVuexStore } from './utils';
 
-// Import your additional components here
 import VueHandyGaComponent from './vue-handy-ga-component.vue';
 
 export default class VueHandyGa {
-  // HERE IS YOUR PLACE TO DEVELOP YOUR COMPONENT
-
   constructor(options = {}) {
     const defaults = {
-      // This is your plugin's options. It will be accessible with this.options
-      accessorName: '$vueHandyGa',
-      ui: false
+      accessorName: '$vueHandyGa'
     };
     this.options = { ...defaults, ...options };
   }
 
-  // Some instance methods that you can access from this.$vueHandyGa
   world() {
     return 'world';
   }
 
   static register = (Vue, options, store) => {
-    console.log('Here is the options of the component', options);
-    console.log('Here is the store of the app', store);
-    // You can use `this.options` property to access options.
-
-    // Delete this line if your plug-in doesn't provide any components
     Vue.component('VueHandyGa', VueHandyGaComponent);
-
-    // Vue.directive('your-custom-directive', customDirective);
 
     registerVuexStore(store, 'gaStore', {
       namespaced: true,
-      state: { uiState: null },
+      state: {},
       getters: {},
       actions: {},
       mutations: {}
     });
   };
 
-  // Some lifecycle hooks to add on mixin
   static mixin = () => ({
-    mounted() {
-      console.log('Hey! I am running on every mount, please remove me!');
-      console.log(this.$store);
-    }
+    mounted() {}
   });
 
   ////////////////////////////////////
