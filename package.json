@@ -12,7 +12,6 @@
   "scripts": {
     "test": "exit 0;",
     "storybook": "start-storybook",
-    "precommit": "lint-staged",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "example:basic": "poi -s examples/basic/index.js"
   },
@@ -69,5 +68,10 @@
   },
   "peerDependencies": {
     "vue": "^2.6.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
