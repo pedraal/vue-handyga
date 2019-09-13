@@ -5,13 +5,38 @@ import VueHandyGaComponent from './vue-handy-ga-component.vue';
 export default class VueHandyGa {
   constructor(options = {}) {
     const defaults = {
-      accessorName: '$vueHandyGa'
+      accessorName: '$vueHandyGa',
+      consentHandler: false,
+      gaID: null
     };
     this.options = { ...defaults, ...options };
   }
 
-  world() {
-    return 'world';
+  start() {
+    if (!this.options.options.gaID)
+      return console.log('[vue-handy-ga] No gaID provided');
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      (i[r] =
+        i[r] ||
+        function() {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      'script',
+      'https://www.google-analytics.com/analytics.js',
+      'ga'
+    );
+
+    ga('create', this.options.options.gaID, 'auto');
+    ga('send', 'pageview');
   }
 
   static register = (Vue, options, store) => {
