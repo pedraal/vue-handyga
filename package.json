@@ -13,7 +13,9 @@
     "test": "exit 0;",
     "storybook": "start-storybook",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "example:basic": "poi -s examples/basic/index.js"
+    "example:basic": "poi -s examples/basic/index.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -62,6 +64,7 @@
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.0.4",
     "vuex": "^3.1.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
