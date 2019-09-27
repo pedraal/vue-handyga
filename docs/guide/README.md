@@ -44,7 +44,7 @@ new Vue({
 
 - In a nuxt.js projet
 
-  _Comming soon_
+  _Coming soon_
 
 ## Advanced
 

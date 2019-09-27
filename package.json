@@ -1,6 +1,6 @@
 {
   "name": "vue-handy-ga",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Vue.js plugin making Google Analytics integration handy!",
   "main": "dist/vue-handy-ga.js",
   "types": "src/types/index.d.ts",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedraal/vue-handyga.git"
+    "url": "git+/pedraal/vue-handyga.git"
   },
   "keywords": [
     "vue",
@@ -40,7 +40,7 @@
   "bugs": {
     "url": "https://github.com/pedraal/vue-handyga/issues"
   },
-  "homepage": "https://github.com/https://github.com/pedraal/vue-handyga#readme",
+  "homepage": "https://github.com/pedraal/vue-handyga#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",

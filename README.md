@@ -41,6 +41,10 @@ export default {
 </script>
 ```
 
+## Documentation
+
+Find the official documentation [here](https://pedraal.github.io/vue-handyga/)
+
 ## License
 
 MIT
