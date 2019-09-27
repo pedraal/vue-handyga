@@ -6,8 +6,7 @@
   "types": "src/types/index.d.ts",
   "files": [
     "dist",
-    "src",
-    "nuxt"
+    "src"
   ],
   "scripts": {
     "test": "exit 0;",
@@ -33,11 +32,10 @@
   },
   "keywords": [
     "vue",
-    "querystring",
-    "state",
-    "sync"
+    "analytics",
+    "google"
   ],
-  "author": "Pierre Golfier <pgolfier.pro@gmail.com>",
+  "author": "Pierre Golfier <pgolfier.pro@gmail.com> (https://pedraal.dev)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pedraal/vue-handyga/issues"

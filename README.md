@@ -1,6 +1,6 @@
 # VueHandyGa
 
-Vue.js plugin making Google Analytics integration handy!
+Vue.js plugin making Google Analytics (RGPD friendly) integration easy!
 
 ## Quick start
 
@@ -15,7 +15,7 @@ npm i vue-handy-ga --save
 ### 2. Plug-in
 
 ```js
-import VueHandyGa from "vue-handy-ga"
+import VueHandyGa from 'vue-handy-ga'
 
 Vue.use(VueHandyGa)
 
