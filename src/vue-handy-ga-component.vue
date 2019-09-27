@@ -1,11 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    <Toast />
+  </div>
 </template>
 
 <script>
+import Toast from "./components/Toast.vue";
+
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  components: {
+    Toast
+  },
   computed: {
     ...mapGetters("gaStore", [])
   },
@@ -20,3 +27,7 @@ export default {
   }
 };
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+</style>
