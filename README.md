@@ -19,6 +19,10 @@ import VueHandyGa from 'vue-handy-ga'
 
 Vue.use(VueHandyGa)
 
+const options = {
+  gaID: 'UA-XXXXXXXX-X'
+}
+
 new Vue({
   // your vue config
   vueHandyGaSettings: new VueHandyGa()

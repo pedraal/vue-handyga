@@ -25,14 +25,14 @@ In your index.js file:
 
 ```js
 import Vue from 'vue'
-import VueHandyGa from '@/vue-handy-ga'
+import VueHandyGa from 'vue-handy-ga'
 
 import App from './App.vue'
 
 Vue.use(VueHandyGa)
 
 const options = {
-  gaID: 'UA-119401025-6'
+  gaID: 'UA-XXXXXXXX-X'
 }
 
 new Vue({
