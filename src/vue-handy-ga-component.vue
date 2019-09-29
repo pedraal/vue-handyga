@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Toast />
+    <transition name="toast">
+      <Toast v-if="UIstate === 'toast'" />
+    </transition>
   </div>
 </template>
 
@@ -14,20 +16,52 @@ export default {
     Toast
   },
   computed: {
-    ...mapGetters("gaStore", [])
+    ...mapGetters("gaStore", ["UIstate"])
   },
   methods: {
     ...mapActions("gaStore", [])
   },
   data() {
-    return {};
+    return {
+      toast: true
+    };
   },
   mounted() {
-    this.$vueHandyGa.start();
+    console.log(this.$test);
+    this.$test.three();
   }
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+.toast-enter-active {
+  animation: toast-in 0.5s ease-in-out;
+}
+
+.toast-leave-active {
+  animation: toast-out 0.5s ease-in-out;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-out {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+}
 </style>

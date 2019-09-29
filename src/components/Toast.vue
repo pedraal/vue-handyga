@@ -11,12 +11,29 @@
     <div
       class="text"
     >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum accusamus, tempora pariatur reprehenderit modi blanditiis quis sunt nulla sequi laborum, ipsum corporis, odio aliquid et perspiciatis minima doloribus soluta!</div>
-    <div class="action">Accept</div>
+    <div class="action">
+      <div @click="start">Accept</div>
+      <div @click="info">More info</div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions, mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters("gaStore", [])
+  },
+  methods: {
+    ...mapActions("gaStore", ["updateUI"]),
+    start() {
+      this.$vueHandyGa.start();
+      this.updateUI("none");
+    },
+    info() {}
+  }
+};
 </script>
 
 <style scoped>
@@ -24,7 +41,7 @@ export default {};
   position: fixed;
   right: 10px;
   bottom: 10px;
-  width: 400px;
+  width: 600px;
   color: white;
   border-radius: 3px;
   padding: 15px;
@@ -44,15 +61,27 @@ svg {
   fill: #ffffff;
 }
 
-.action {
+.action div {
   cursor: pointer;
-  margin: 0 10px;
-  transition: all 0.7s ease;
+  margin: 0 20px;
+  font-weight: bold;
   text-align: center;
+  background: rgba(40, 40, 40, 0.15);
+  transition: all 0.3s ease-in-out;
+  padding: 7px 12px;
+  border-radius: 5px;
 }
 
-.action:hover {
-  font-weight: bold;
+.action div:last-of-type {
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: 5px;
+  padding: 7px 4px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.action div:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 720px) {

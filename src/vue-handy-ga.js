@@ -1,5 +1,7 @@
 import { devMode, registerVuexStore } from './utils';
 
+import Cookies from 'js-cookie';
+
 import VueHandyGaComponent from './vue-handy-ga-component.vue';
 
 export default class VueHandyGa {
@@ -39,15 +41,33 @@ export default class VueHandyGa {
     ga('send', 'pageview');
   }
 
-  static register = (Vue, options, store) => {
+  static register = (Vue, { options }, store) => {
     Vue.component('VueHandyGa', VueHandyGaComponent);
+
+    Vue.prototype.$handyga = {
+      options
+    };
 
     registerVuexStore(store, 'gaStore', {
       namespaced: true,
-      state: {},
-      getters: {},
-      actions: {},
-      mutations: {}
+      state: {
+        UIstate: 'none'
+      },
+      getters: {
+        UIstate(state) {
+          return state.UIstate;
+        }
+      },
+      actions: {
+        updateUI({ commit }, payload) {
+          commit('UPDATE_UI', payload);
+        }
+      },
+      mutations: {
+        UPDATE_UI(state, payload) {
+          state.UIstate = payload;
+        }
+      }
     });
   };
 
