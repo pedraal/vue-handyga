@@ -13,6 +13,7 @@
     "storybook": "start-storybook",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "example:basic": "poi -s examples/basic/index.js",
+    "example:builtin": "poi -s examples/builtin-consent/index.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
