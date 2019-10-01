@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .toast-wrapper {
   position: fixed;
   right: 10px;
