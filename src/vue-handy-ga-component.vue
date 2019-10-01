@@ -22,13 +22,10 @@ export default {
     ...mapActions("gaStore", [])
   },
   data() {
-    return {
-      toast: true
-    };
+    return {};
   },
   mounted() {
-    console.log(this.$test);
-    this.$test.three();
+    this.$handyga.processCookieConsent();
   }
 };
 </script>

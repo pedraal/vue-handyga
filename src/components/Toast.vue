@@ -1,19 +1,18 @@
 <template>
   <div class="toast-wrapper" :style="{background: '#5c6bc0'}">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-        />
-      </svg>
+    <div class="text">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+          />
+        </svg>
+      </div>This web app is using Google Analytics for audience measurement. By staying on this website, you let us store a cookie in your browser. Click the buttons to accept or to reject the cookie deposit.
     </div>
-    <div
-      class="text"
-    >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nostrum accusamus, tempora pariatur reprehenderit modi blanditiis quis sunt nulla sequi laborum, ipsum corporis, odio aliquid et perspiciatis minima doloribus soluta!</div>
     <div class="action">
-      <div @click="start">Accept</div>
-      <div @click="info">More info</div>
+      <div @click="accept">Accept</div>
+      <div @click="reject">Reject</div>
     </div>
   </div>
 </template>
@@ -27,11 +26,12 @@ export default {
   },
   methods: {
     ...mapActions("gaStore", ["updateUI"]),
-    start() {
-      this.$vueHandyGa.start();
-      this.updateUI("none");
+    accept() {
+      this.$handyga.accept();
     },
-    info() {}
+    reject() {
+      this.$handyga.reject();
+    }
   }
 };
 </script>
@@ -55,10 +55,16 @@ export default {
 }
 
 .icon {
-  margin: 0 10px;
+  margin: 0 20px 0 10px;
 }
 svg {
   fill: #ffffff;
+}
+
+.text {
+  display: flex;
+  text-align: justify;
+  align-items: center;
 }
 
 .action div {
@@ -84,6 +90,10 @@ svg {
   background: rgba(0, 0, 0, 0.2);
 }
 
+.action div:last-of-type:hover {
+  background: rgba(0, 0, 0, 0);
+}
+
 @media screen and (max-width: 720px) {
   .toast-wrapper {
     bottom: 0;
@@ -91,6 +101,10 @@ svg {
     right: 0;
     border-radius: 0;
     width: 100%;
+    display: block;
+  }
+  .action {
+    margin-top: 10px;
   }
 }
 </style>
