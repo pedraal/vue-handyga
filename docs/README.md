@@ -9,6 +9,6 @@ features:
   - title: Simplicity First
     details: Install the npm package, reference your GA-ID and run the "start" function to start tracking audience.
   - title: RGPD Friendly
-    details: Full cookie consent process. Use built-in UI for a quick start or simply call plugin's methods in your own vue-components.
+    details: Full cookie consent process. Use built-in component for a quick start or simply call plugin's methods in your own vue-components.
 footer: MIT Licensed | Copyright © 2019-present Pierre Golfier
 ---

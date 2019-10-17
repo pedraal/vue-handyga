@@ -1,7 +1,8 @@
 ---
 sidebarDepth: 2
 ---
-# Quick start
+
+# Quick start <Badge text="v1.0.0"/>
 
 ## Introduction
 
@@ -16,36 +17,38 @@ Install the npm package using CLI
 
 ```
 npm install vue-handy-ga
+# or
+yarn add vue-handy-ga
 ```
 
 ## Integration
 
-### Using built-in UI
+### Using built-in component
 
 ::: warning
-As the built-in UI is registering a Vuex store module to handle UI state, you'll need to install Vuex and import it in your project
+As the built-in UI registers a Vuex store module to handle UI state, you'll need to install Vuex and import it in your project
 :::
 
 In your index.js file:
 
 ```js
-import Vue from 'vue'
-import Vuex from 'vuex' 
-import VueHandyGa from 'vue-handy-ga'
+import Vue from "vue";
+import Vuex from "vuex";
+import VueHandyGa from "vue-handy-ga";
 
-import App from './App.vue'
+import App from "./App.vue";
 
-Vue.use(VueHandyGa)
+Vue.use(VueHandyGa);
 
 const options = {
-  gaID: 'UA-XXXXXXXX-X'
-}
+  gaID: "UA-XXXXXXXX-X"
+};
 
 new Vue({
-  el: '#app',
+  el: "#app",
   vueHandyGaSettings: new VueHandyGa(options),
   render: createElement => createElement(App)
-})
+});
 ```
 
 In your Vue file
@@ -62,12 +65,11 @@ export default {
   components: {
     VueHandyGa
   }
-}
+};
 </script>
-
 ```
 
-### Without built-in UI
+### Without built-in component
 
 In your index.js file:
 
@@ -102,16 +104,16 @@ In your Vue file
 
 <script>
 export default {
-  mounted(){
-    this.$handyga.start()
+  mounted() {
+    this.$handyga.start();
   }
-}
+};
 </script>
-
 ```
 
 ## Examples
 
-You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handyga): 
-- Basic: In this example you will find how to use the plugin whitout the built-in UI
+You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handyga):
+
+- Basic: In this example you will find how to use the plugin without the built-in UI
 - Built-in consent: This example is showing how to integrate the built-in UI in any Vue.js project
