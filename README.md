@@ -20,12 +20,13 @@ import VueHandyGa from 'vue-handy-ga'
 Vue.use(VueHandyGa)
 
 const options = {
-  gaID: 'UA-XXXXXXXX-X'
+  gaID: 'UA-XXXXXXXX-X',
+  builtin: false //default: true
 }
 
 new Vue({
   // your vue config
-  vueHandyGaSettings: new VueHandyGa()
+  vueHandyGaSettings: new VueHandyGa(),
 })
 ```
 
@@ -33,13 +34,14 @@ new Vue({
 
 ```vue
 <template>
+  <!-- If using built-in UI -->
   <vue-handy-ga />
 </template>
 
 <script>
 export default {
-  async created() {
-    console.log(this.$vueHandyGa)
+  mounted() {
+    console.log(this.$handyga)
   }
 }
 </script>
