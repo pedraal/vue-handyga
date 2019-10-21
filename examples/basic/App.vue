@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Hello {{ msg }}!</h1>
-    <a @click="$handyga.start">start</a>
-    <a @click="$handyga.reject">block</a>
+    <a @click="accept">accept</a>
+    <a @click="reject">reject</a>
   </div>
 </template>
 
@@ -10,10 +10,21 @@
 export default {
   data() {
     return {
-      msg: "world"
+      msg: "world",
+      consent: false
     };
   },
-  mounted() {}
+  methods: {
+    accept() {
+      this.$handyga.accept();
+    },
+    reject() {
+      this.$handyga.reject();
+    }
+  },
+  mounted() {
+    this.$handyga.processConsent(() => alert("No consent cookie found")); //callback called if there is no consent setting stored
+  }
 };
 </script>
 

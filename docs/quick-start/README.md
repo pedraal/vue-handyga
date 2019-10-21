@@ -32,23 +32,25 @@ As the built-in UI registers a Vuex store module to handle UI state, you'll need
 In your index.js file:
 
 ```js
-import Vue from "vue";
-import Vuex from "vuex";
-import VueHandyGa from "vue-handy-ga";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import VueHandyGa from 'vue-handy-ga'
 
-import App from "./App.vue";
+import App from './App.vue'
 
-Vue.use(VueHandyGa);
+Vue.use(Vuex)
+Vue.use(VueHandyGa)
 
 const options = {
-  gaID: "UA-XXXXXXXX-X"
-};
+  gaID: 'UA-XXXXXXXX-X'
+}
 
 new Vue({
-  el: "#app",
+  el: '#app',
+  store: new Vuex.Store(),
   vueHandyGaSettings: new VueHandyGa(options),
   render: createElement => createElement(App)
-});
+})
 ```
 
 In your Vue file
@@ -65,7 +67,7 @@ export default {
   components: {
     VueHandyGa
   }
-};
+}
 </script>
 ```
 
@@ -105,9 +107,9 @@ In your Vue file
 <script>
 export default {
   mounted() {
-    this.$handyga.start();
+    this.$handyga.start()
   }
-};
+}
 </script>
 ```
 
