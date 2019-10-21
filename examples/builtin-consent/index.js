@@ -8,6 +8,7 @@ Vue.use(Vuex);
 Vue.use(VueHandyGa);
 
 const options = {
+  //Add your own gaID
   gaID: 'UA-119401025-6'
 };
 

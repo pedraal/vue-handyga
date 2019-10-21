@@ -11,8 +11,7 @@ export default {
     return {
       msg: "world"
     };
-  },
-  mounted() {}
+  }
 };
 </script>
 
