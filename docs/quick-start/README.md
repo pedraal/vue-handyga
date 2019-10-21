@@ -63,11 +63,7 @@ In your Vue file
 </template>
 
 <script>
-export default {
-  components: {
-    VueHandyGa
-  }
-}
+export default {}
 </script>
 ```
 
