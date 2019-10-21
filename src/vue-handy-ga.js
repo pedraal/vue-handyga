@@ -39,7 +39,6 @@ export default class VueHandyGa {
         }
       });
     }
-
     Vue.prototype.$handyga = {
       options,
       start() {
@@ -76,7 +75,6 @@ export default class VueHandyGa {
         }
       },
       reject() {
-        let GA_PROPERTY = options.gaID;
         let GA_COOKIE_NAMES = [
           '__utma',
           '__utmb',
@@ -86,8 +84,8 @@ export default class VueHandyGa {
           '_gat',
           '_gid'
         ];
-        Cookies.set(`ga-disable-${GA_PROPERTY}`, true, { expires: 395 });
-        window[`ga-disable-${GA_PROPERTY}`] = true;
+        Cookies.set(`ga-disable-${options.gaID}`, true, { expires: 395 });
+        window[`ga-disable-${options.gaID}`] = true;
         Cookies.set('hasConsent', false, { expires: 395 });
         GA_COOKIE_NAMES.forEach(cookieName => Cookies.remove(cookieName));
         if (options.builtin) {
@@ -98,7 +96,7 @@ export default class VueHandyGa {
         return Cookies.get('hasConsent') === undefined ? false : true;
       },
 
-      processCookieConsent() {
+      processConsent(callback) {
         const consentCookie = Cookies.getJSON('hasConsent');
         const doNotTrack = navigator.doNotTrack || navigator.msDoNotTrack;
 
@@ -123,7 +121,13 @@ export default class VueHandyGa {
         }
 
         if (this.options.builtin) {
-          store.dispatch('gaStore/updateUI', 'toast');
+          store.dispatch('gaStore/updateUI', 'notification');
+          return;
+        }
+
+        if (callback) {
+          callback();
+          return;
         }
       }
     };

@@ -1,19 +1,19 @@
 <template>
   <div>
-    <transition name="toast">
-      <Toast v-if="UIstate === 'toast'" />
+    <transition name="notification">
+      <Notification v-if="UIstate === 'notification'" />
     </transition>
   </div>
 </template>
 
 <script>
-import Toast from "./components/Toast.vue";
+import Notification from "./components/Notification.vue";
 
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
-    Toast
+    Notification
   },
   computed: {
     ...mapGetters("gaStore", ["UIstate"])
@@ -21,11 +21,8 @@ export default {
   methods: {
     ...mapActions("gaStore", [])
   },
-  data() {
-    return {};
-  },
   mounted() {
-    this.$handyga.processCookieConsent();
+    this.$handyga.processConsent();
   }
 };
 </script>
@@ -33,15 +30,15 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-.toast-enter-active {
-  animation: toast-in 0.5s ease-in-out;
+.notification-enter-active {
+  animation: notification-in 0.5s ease-in-out;
 }
 
-.toast-leave-active {
-  animation: toast-out 0.5s ease-in-out;
+.notification-leave-active {
+  animation: notification-out 0.5s ease-in-out;
 }
 
-@keyframes toast-in {
+@keyframes notification-in {
   from {
     transform: translateY(28px);
     opacity: 0;
@@ -52,7 +49,7 @@ export default {
   }
 }
 
-@keyframes toast-out {
+@keyframes notification-out {
   from {
     transform: translateY(0px);
   }
