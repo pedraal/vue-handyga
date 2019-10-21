@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Vue.js plugin making Google Analytics integration handy!",
   "main": "dist/vue-handy-ga.js",
-  "types": "src/types/index.d.ts",
   "files": [
     "dist",
     "src"
