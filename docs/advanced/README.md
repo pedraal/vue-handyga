@@ -6,13 +6,20 @@ sidebarDepth: 1
 
 ## Configuration
 
-Here are the options you can pass to the VueHandyGa object:
+Options you can pass to the VueHandyGa object in your index.js file:
 
 ```js
+//[...]
 const options = {
   gaID: String, //Your ID provided by Google Analytics
   builtin: Boolean //Controls if the built-in component should be used or not. Default: true
-};
+}
+
+new Vue({
+  //[...]
+  vueHandyGaSettings: new VueHandyGa(options)
+  //[...]
+})
 ```
 
 ## Cookies
@@ -27,9 +34,9 @@ To manage user consent and Google Analytics, this plugin delivers 2 types of coo
 As the plugin is globally registered, you can access its propreties and methods like so:
 
 ```js
-this.$handyga.proprety;
+this.$handyga.proprety
 // OR
-this.$handyga.method();
+this.$handyga.method()
 ```
 
 ## API
@@ -48,13 +55,13 @@ This function sets a cookie that tells that the user has given his consent for y
 
 ### **`.reject()`**
 
-This function sets a cookie that tells that the user rejected your request to use cookies for tracking purposes. It also delete existing tracking cookies and deposit another cookie disabling tracking if cookie removal failed.
+This function sets a cookie that tells that the user rejected your request to use cookies for tracking purposes. It also deletes existing tracking cookies and sets a window property blocking the Google's script to send data. Get more info in [official docs](https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out).
 
 ### **`.checkConsent()`**
 
 This function checks if the browser is already holding any consent cookie for your app/web site.
 
-### **`.processCookieConsent(callback[optionnal])`**
+### **`.processConsent(callback[optionnal])`**
 
 This function brings the logic behing consent handling. It checks the trackablity of the client using the following conditions:
 
@@ -69,7 +76,7 @@ This function brings the logic behing consent handling. It checks the trackablit
 
 To make Google Analytics integration really easy, according to RGPD requirements, the plugin has a built-in component handling consent request and cookie deposit for you.
 
-Simply register this component in your main vue component. On mount, it will call the [`.processCookieConsent()`](#processcookieconsent-callback-optionnal) method. If the user has never been asked for consent, it will render a notification component. Otherwise, the plugin will use the stored user's choice to start tracking or not.
+Simply register this component in your main vue component. On mount, it will call the [`.processConsent()`](#processconsent-callback-optionnal) method. If the user has never been asked for consent, it will render a notification component. Otherwise, the plugin will use the stored user's choice to start tracking or not.
 
 ::: warning
 As the built-in UI registers a Vuex store module to handle UI state, you'll need to install Vuex and import it in your project
