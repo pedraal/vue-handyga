@@ -3,17 +3,22 @@
     <transition name="notification">
       <Notification v-if="UIstate === 'notification'" />
     </transition>
+    <transition name="modal">
+      <Modal v-if="UIstate === 'modal'" />
+    </transition>
   </div>
 </template>
 
 <script>
 import Notification from "./components/Notification.vue";
+import Modal from "./components/Modal.vue";
 
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
-    Notification
+    Notification,
+    Modal
   },
   computed: {
     ...mapGetters("gaStore", ["UIstate"])
@@ -37,6 +42,13 @@ export default {
 .notification-leave-active {
   animation: notification-out 0.5s ease-in-out;
 }
+.modal-enter-active {
+  animation: modal-in 0.5s ease-in-out;
+}
+
+.modal-leave-active {
+  animation: modal-out 0.5s ease-in-out;
+}
 
 @keyframes notification-in {
   from {
@@ -55,6 +67,22 @@ export default {
   }
   to {
     transform: translateY(28px);
+    opacity: 0;
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-out {
+  from {
+  }
+  to {
     opacity: 0;
   }
 }

@@ -9,6 +9,8 @@ export default class VueHandyGa {
     const defaults = {
       accessorName: '$vueHandyGa',
       builtin: true,
+      advanced: false,
+      mandatory: false,
       gaID: null
     };
     this.options = { ...defaults, ...options };
@@ -133,9 +135,7 @@ export default class VueHandyGa {
     };
   };
 
-  static mixin = () => ({
-    mounted() {}
-  });
+  static mixin = () => ({});
 
   ////////////////////////////////////
   // YOU MAY NOT NEED TO EDIT BELOW //
