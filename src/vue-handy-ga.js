@@ -11,7 +11,9 @@ export default class VueHandyGa {
       builtin: true,
       advanced: false,
       mandatory: false,
-      gaID: null
+      gaID: null,
+      bgColor: '#5c6bc0',
+      textColor: 'white'
     };
     this.options = { ...defaults, ...options };
   }

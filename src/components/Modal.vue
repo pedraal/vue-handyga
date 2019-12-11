@@ -1,6 +1,6 @@
 <template>
   <div class="modal-container">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}">
       <div class="modal-header">
         <h2>{{locales.modalTitle}}</h2>
       </div>
@@ -53,11 +53,9 @@ export default {
 
   .modal-wrapper {
     max-width: 60%;
-    background: #5c6bc0;
     border-radius: 3px;
     font-size: 0.9rem;
     font-family: 'Roboto', sans-serif;
-    color: white;
     padding: 5px 15px;
 
     .modal-header {

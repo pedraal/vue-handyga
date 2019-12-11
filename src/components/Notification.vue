@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-wrapper" @click.stop>
+  <div class="notification-wrapper" :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}" @click.stop>
     <div class="text">
       <div class="icon">
         <svg
@@ -7,6 +7,7 @@
           width="24"
           height="24"
           viewBox="0 0 24 24"
+          :style="{fill: $handyga.options.textColor}"
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path
@@ -84,8 +85,6 @@ export default {
   right: 10px;
   bottom: 10px;
   width: 600px;
-  color: white;
-  background: #5c6bc0;
   border-radius: 3px;
   padding: 15px;
   font-size: 0.9rem;
@@ -99,9 +98,6 @@ export default {
 
 .icon {
   margin: 0 20px 0 10px;
-}
-svg {
-  fill: #ffffff;
 }
 
 .text {
