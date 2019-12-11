@@ -2,12 +2,12 @@
   <div class="modal-container">
     <div class="modal-wrapper">
       <div class="modal-header">
-        <h2>Cookies</h2>
+        <h2>{{locales.modalTitle}}</h2>
       </div>
       <div class="divider"></div>
       <div class="modal-body">
-        <p></p>
-        TEXT TO DO, FIND I18N PLUGIN
+        <p v-if="!$handyga.options.mandatory">{{locales.modalBody}}</p>
+        <p v-else>{{locales.mandatory.modalBody}}</p>
       </div>
       <div class="divider"></div>
       <div class="modal-action">
@@ -19,13 +19,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { selectLocale } from '../utils'
+
 export default {
-  data() {
-    return {};
+  computed: {
+    locales () {
+      return selectLocale()
+    }
   },
   methods: {
-    ...mapActions('gaStore', ['updateUI']),
     accept() {
       this.$handyga.accept();
     },

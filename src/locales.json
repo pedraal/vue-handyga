@@ -1,0 +1,38 @@
+{
+  "en": {
+    "notification": "Notification text",
+    "modalTitle": "Cookies",
+    "modalBody": "Modal text",
+    "actions": {
+      "accept": "Accept",
+      "refuse": "Refuse",
+      "more": "More infos"
+    },
+    "mandatory": {
+      "notification": "Mandatory notification text",
+      "modalBody": "Mandatory modal text",
+      "actions": {
+        "accept": "Ok",
+        "more": "More infos"
+      }
+    }
+  },
+  "fr": {
+    "notification": "Texte de la notification",
+    "modalTitle": "Cookies",
+    "modalBody": "Texte de la modal",
+    "actions": {
+      "accept": "Accepter",
+      "refuse": "Refuser",
+      "more": "Plus d'infos"
+    },
+    "mandatory": {
+      "notification": "Texte de la notification obligatoire",
+      "modalBody": "Texte de la modal obligatoire",
+      "actions": {
+        "accept": "Ok",
+        "more": "Plus d'infos"
+      }
+    }
+  }
+}

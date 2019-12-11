@@ -15,41 +15,45 @@
         </svg>
       </div>
       <p v-if="!$handyga.options.mandatory">
-        TEXT TO DO, FIND I18N PLUGIN
+        {{locales.notification}}
       </p>
       <p v-else>
-        TEXT TO DO, FIND I18N PLUGIN
+        {{locales.mandatory.notification}}
       </p>
     </div>
     <div v-if="!$handyga.options.advanced" class="action">
-      <div @click="accept" class="action-primary">Accept</div>
+      <div @click="accept" class="action-primary">{{locales.actions.accept}}</div>
       <div
         v-if="!$handyga.options.mandatory"
         @click="reject"
         class="action-secondary"
       >
-        Refuse
+        {{locales.actions.refuse}}
       </div>
     </div>
     <div v-else class="action">
-      <div @click="accept" class="action-primary">Accept</div>
+      <div @click="accept" class="action-primary">
+        {{locales.actions.accept}}</div>
       <div
         v-if="!$handyga.options.mandatory"
         @click="openModal"
         class="action-secondary"
       >
-        More info
+        {{locales.actions.more}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
+import { selectLocale } from '../utils'
 
 export default {
   computed: {
-    ...mapGetters('gaStore', [])
+    locales () {
+      return selectLocale()
+    }
   },
   methods: {
     ...mapActions('gaStore', ['updateUI']),

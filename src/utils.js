@@ -1,3 +1,5 @@
+import locales from './locales.json';
+
 export function devMode() {
   return process.env.NODE_ENV !== 'production';
 }
@@ -8,5 +10,13 @@ export function registerVuexStore(vuex, storeName, store) {
   const isRegistered = vuex._modules.get([storeName]);
   if (!isRegistered) {
     vuex.registerModule(storeName, store);
+  }
+}
+
+export function selectLocale() {
+  if (window.navigator.language === 'fr') {
+    return locales.fr;
+  } else {
+    return locales.en;
   }
 }
