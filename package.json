@@ -11,8 +11,7 @@
     "test": "exit 0;",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "example:basic": "poi -s examples/basic/index.js",
-    "example:builtin-s": "poi -s examples/builtin-simple/index.js",
-    "example:builtin-a": "poi -s examples/builtin-advanced/index.js",
+    "example:builtin": "poi -s examples/builtin-consent/index.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },

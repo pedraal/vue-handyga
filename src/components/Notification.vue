@@ -1,5 +1,12 @@
 <template>
-  <div class="notification-wrapper" :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}" @click.stop>
+  <div
+    class="notification-wrapper"
+    :style="{
+      background: $handyga.options.bgColor,
+      color: $handyga.options.textColor
+    }"
+    @click.stop
+  >
     <div class="text">
       <div class="icon">
         <svg
@@ -7,7 +14,7 @@
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          :style="{fill: $handyga.options.textColor}"
+          :style="{ fill: $handyga.options.textColor }"
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path
@@ -16,38 +23,25 @@
         </svg>
       </div>
       <p v-if="!$handyga.options.mandatory">
-        {{locales.notification}}
+        {{ locales.notification }}
       </p>
       <p v-else>
-        {{locales.mandatory.notification}}
+        {{ locales.mandatory.notification }}
       </p>
     </div>
-    <div v-if="!$handyga.options.advanced" class="action">
-      <div @click="accept" class="action-primary">{{locales.actions.accept}}</div>
-      <div
-        v-if="!$handyga.options.mandatory"
-        @click="reject"
-        class="action-secondary"
-      >
-        {{locales.actions.refuse}}
-      </div>
-    </div>
-    <div v-else class="action">
+    <div class="action">
       <div @click="accept" class="action-primary">
-        {{locales.actions.accept}}</div>
-      <div
-        v-if="!$handyga.options.mandatory"
-        @click="openModal"
-        class="action-secondary"
-      >
-        {{locales.actions.more}}
+        {{ locales.actions.accept }}
+      </div>
+      <div @click="openModal" class="action-secondary">
+        {{ locales.actions.more }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 import { selectLocale } from '../utils'
 
 export default {
@@ -58,25 +52,14 @@ export default {
   },
   methods: {
     ...mapActions('gaStore', ['updateUI']),
-    accept() {
-      this.$handyga.accept();
+    accept () {
+      this.$handyga.accept()
     },
-    reject() {
-      this.$handyga.reject();
-    },
-    openModal() {
-      this.$store.dispatch('gaStore/updateUI', 'modal');
-    }
-  },
-  mounted() {
-    let self = this;
-    if (this.$handyga.options.mandatory) {
-      window.addEventListener('click', () => {
-        self.accept();
-      });
+    openModal () {
+      this.$store.dispatch('gaStore/updateUI', 'modal')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

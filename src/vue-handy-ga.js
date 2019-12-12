@@ -7,9 +7,7 @@ import VueHandyGaComponent from './vue-handy-ga-component.vue';
 export default class VueHandyGa {
   constructor(options = {}) {
     const defaults = {
-      accessorName: '$vueHandyGa',
       builtin: true,
-      advanced: false,
       mandatory: false,
       gaID: null,
       bgColor: '#5c6bc0',
@@ -190,12 +188,6 @@ export function install(Vue) {
       } else if (parent && parent.__$VueHandyGaInstance) {
         instance = parent.__$VueHandyGaInstance;
         instance.init(Vue, parent.$store);
-      }
-
-      if (instance) {
-        // Store helper for internal use
-        this.__$VueHandyGaInstance = instance;
-        this[instance.options.accessorName] = instance;
       }
     },
 
