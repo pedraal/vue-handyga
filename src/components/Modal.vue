@@ -1,18 +1,18 @@
 <template>
   <div class="modal-container">
-    <div class="modal-wrapper" :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}">
+    <div class="modal-wrapper" @click.stop :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}">
       <div class="modal-header">
         <h2>{{locales.modalTitle}}</h2>
       </div>
       <div class="divider"></div>
       <div class="modal-body">
-        <p v-if="!$handyga.options.mandatory">{{locales.modalBody}}</p>
-        <p v-else>{{locales.mandatory.modalBody}}</p>
+        <p v-html="parseMD(locales.modalBody)"></p>
       </div>
       <div class="divider"></div>
       <div class="modal-action">
-        <div @click="accept" class="modal-action-primary">Accept</div>
-        <div @click="reject" class="modal-action-secondary">Reject</div>
+        <div @click="accept" class="modal-action-primary">{{locales.actions.accept}}</div>
+        <div v-if="!$handyga.options.mandatory" @click="reject" class="modal-action-secondary">{{locales.actions.refuse}}</div>
+        <div v-else @click="leave" class="modal-action-secondary">{{locales.mandatory.actions.leave}}</div>
       </div>
     </div>
   </div>
@@ -20,6 +20,7 @@
 
 <script>
 import { selectLocale } from '../utils'
+import marked from 'marked'
 
 export default {
   computed: {
@@ -33,6 +34,12 @@ export default {
     },
     reject() {
       this.$handyga.reject();
+    },
+    leave(){
+      this.$handyga.leave();
+    },
+    parseMD(str){
+      return marked(str)
     }
   }
 };
