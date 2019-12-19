@@ -29,20 +29,20 @@ export default {
     }
   },
   methods: {
-    accept() {
-      this.$handyga.accept();
+    accept () {
+      this.$handyga.accept()
     },
-    reject() {
-      this.$handyga.reject();
+    reject () {
+      this.$handyga.reject()
     },
-    leave(){
-      this.$handyga.leave();
+    leave () {
+      this.$handyga.leave()
     },
-    parseMD(str){
+    parseMD (str) {
       return marked(str)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

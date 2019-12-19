@@ -26,7 +26,7 @@ export default {
   mounted () {
     this.$handyga.processConsent()
 
-    let self = this
+    const self = this
     if (this.$handyga.options.mandatory) {
       window.addEventListener('click', () => {
         self.$handyga.accept()

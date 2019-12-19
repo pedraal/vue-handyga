@@ -8,24 +8,24 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      msg: "world",
+      msg: 'world',
       consent: false
-    };
-  },
-  methods: {
-    accept() {
-      this.$handyga.accept();
-    },
-    reject() {
-      this.$handyga.reject();
     }
   },
-  mounted() {
-    this.$handyga.processConsent(() => alert("No consent cookie found")); //callback called if there is no consent setting stored
+  methods: {
+    accept () {
+      this.$handyga.accept()
+    },
+    reject () {
+      this.$handyga.reject()
+    }
+  },
+  mounted () {
+    this.$handyga.processConsent(() => alert('No consent cookie found')) // callback called if there is no consent setting stored
   }
-};
+}
 </script>
 
 <style>

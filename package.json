@@ -15,17 +15,17 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "npx eslint 'src/**/*.{js,vue}'",
-    "lintfix": "lint -- --fix",
+    "lintfix": "npx eslint 'src/**/*.{js,vue}' --fix",
     "lint:examples": "npx eslint 'examples/**/*.{js,vue}'",
-    "lintfix:examples": "lint:js -- --fix"
+    "lintfix:examples": "npx eslint 'examples/**/*.{js,vue}' --fix"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
-      "npx eslint . --fix",
+      "npx eslint 'src/**/*.{js,vue}' --fix",
       "git add"
     ],
     "examples/**/*.{js,vue}": [
-      "npx eslint . --fix",
+      "npx eslint 'examples/**/*.{js,vue}' --fix",
       "git add"
     ]
   },
@@ -51,6 +51,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
+    "babel-eslint": "^10.0.3",
     "cross-env": "^5.2.0",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",

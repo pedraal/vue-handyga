@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import VueHandyGaComponent from './vue-handy-ga-component.vue'
 
 export default class VueHandyGa {
-  constructor(options = {}) {
+  constructor (options = {}) {
     const defaults = {
       builtin: true,
       mandatory: false,
@@ -25,17 +25,17 @@ export default class VueHandyGa {
           UIstate: 'none'
         },
         getters: {
-          UIstate(state) {
+          UIstate (state) {
             return state.UIstate
           }
         },
         actions: {
-          updateUI({ commit }, payload) {
+          updateUI ({ commit }, payload) {
             commit('UPDATE_UI', payload)
           }
         },
         mutations: {
-          UPDATE_UI(state, payload) {
+          UPDATE_UI (state, payload) {
             state.UIstate = payload
           }
         }
@@ -43,16 +43,17 @@ export default class VueHandyGa {
     }
     Vue.prototype.$handyga = {
       options,
-      start() {
+/* eslint-disable */
+      start () {
         if (!options.gaID) return console.log('[vue-handy-ga] No gaID provided')
-        ;(function(i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r
+        ;(function (i, s, o, g, r, a, m) {
+          i.GoogleAnalyticsObject = r
           ;(i[r] =
             i[r] ||
-            function() {
+            function () {
               ;(i[r].q = i[r].q || []).push(arguments)
             }),
-            (i[r].l = 1 * new Date())
+          (i[r].l = 1 * new Date())
           ;(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0])
           a.async = 1
           a.src = g
@@ -62,15 +63,15 @@ export default class VueHandyGa {
         ga('create', options.gaID, 'auto')
         ga('send', 'pageview')
       },
-      accept() {
+      accept () {
         Cookies.set('hasConsent', true, { expires: 395 })
         this.start()
         if (options.builtin) {
           store.dispatch('gaStore/updateUI', 'none')
         }
       },
-      reject() {
-        let GA_COOKIE_NAMES = ['__utma', '__utmb', '__utmc', '__utmz', '_ga', '_gat', '_gid']
+      reject () {
+        const GA_COOKIE_NAMES = ['__utma', '__utmb', '__utmc', '__utmz', '_ga', '_gat', '_gid']
         Cookies.set(`ga-disable-${options.gaID}`, true, { expires: 395 })
         window[`ga-disable-${options.gaID}`] = true
         Cookies.set('hasConsent', false, { expires: 395 })
@@ -79,15 +80,17 @@ export default class VueHandyGa {
           store.dispatch('gaStore/updateUI', 'none')
         }
       },
-      leave() {
+      /* eslint-enable */
+
+      leave () {
         window.location.href = 'https://google.com'
       },
 
-      checkConsent() {
-        return Cookies.get('hasConsent') === undefined ? false : true
+      checkConsent () {
+        return Cookies.get('hasConsent') !== undefined
       },
 
-      processConsent(callback) {
+      processConsent (callback) {
         const consentCookie = Cookies.getJSON('hasConsent')
         const doNotTrack = navigator.doNotTrack || navigator.msDoNotTrack
 
@@ -114,7 +117,6 @@ export default class VueHandyGa {
 
         if (callback) {
           callback()
-          return
         }
       }
     }
@@ -122,15 +124,15 @@ export default class VueHandyGa {
 
   static mixin = () => ({})
 
-  ////////////////////////////////////
+  /// /////////////////////////////////
   // YOU MAY NOT NEED TO EDIT BELOW //
-  ////////////////////////////////////
+  /// /////////////////////////////////
 
   initialized = false
 
-  init(Vue, store) {
+  init (Vue, store) {
     if (devMode() && !install.installed) {
-      console.warn(`[vue-handy-ga] not installed. Make sure to call \`Vue.use(VueHandyGa)\` before init root instance.`)
+      console.warn('[vue-handy-ga] not installed. Make sure to call `Vue.use(VueHandyGa)` before init root instance.')
     }
 
     if (this.initialized) {
@@ -142,7 +144,7 @@ export default class VueHandyGa {
   }
 }
 
-export function install(Vue) {
+export function install (Vue) {
   const isDev = devMode()
   if (install.installed && Vue) {
     if (isDev) {
@@ -155,12 +157,12 @@ export function install(Vue) {
     /**
      * VueHandyGa init hook, injected into each instances init hooks list.
      */
-    beforeCreate() {
+    beforeCreate () {
       const { vueHandyGaSettings, store, parent } = this.$options
 
       let instance = null
       if (vueHandyGaSettings) {
-        instance = typeof vueHandyGaSettings === 'function' ? new vueHandyGaSettings() : new VueHandyGa(vueHandyGaSettings)
+        instance = typeof vueHandyGaSettings === 'function' ? new vueHandyGaSettings() : new VueHandyGa(vueHandyGaSettings) /* eslint-disable-line */
         // Inject store
         instance.init(Vue, store)
       } else if (parent && parent.__$VueHandyGaInstance) {
