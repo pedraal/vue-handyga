@@ -4,3 +4,6 @@ npm-debug.log
 nuxt
 docs/.vuepress/dist
 .npmignore
+yarn-error.log
+dist/
+deploy.sh

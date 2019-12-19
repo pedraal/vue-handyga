@@ -7,13 +7,12 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      msg: "world"
-    };
+      msg: 'world'
+    }
   }
-};
+}
 </script>
 
-<style>
-</style>
+<style></style>
