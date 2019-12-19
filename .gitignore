@@ -7,3 +7,5 @@ docs/.vuepress/dist
 yarn-error.log
 dist/
 deploy.sh
+yarn.lock
+package-lock.json

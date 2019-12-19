@@ -13,15 +13,19 @@
     "example:basic": "poi -s examples/basic/index.js",
     "example:builtin": "poi -s examples/builtin-consent/index.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "lint": "npx eslint 'src/**/*.{js,vue}'",
+    "lintfix": "lint -- --fix",
+    "lint:examples": "npx eslint 'examples/**/*.{js,vue}'",
+    "lintfix:examples": "lint:js -- --fix"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "prettier --single-quote --write",
+    "src/**/*.{js,vue}": [
+      "npx eslint . --fix",
       "git add"
     ],
-    "examples/**/*.js": [
-      "prettier --single-quote --write",
+    "examples/**/*.{js,vue}": [
+      "npx eslint . --fix",
       "git add"
     ]
   },
@@ -48,14 +52,17 @@
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "cross-env": "^5.2.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.0.1",
     "husky": "^3.0.2",
     "lint-staged": "^9.2.1",
     "node-sass": "^4.12.0",
     "poi": "^12.7.1",
-    "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.10",
