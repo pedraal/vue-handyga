@@ -1,14 +1,25 @@
 module.exports = {
-  root: true,
-  parserOptions: {
-    sourceType: 'module'
-  },
-
-  extends: ['airbnb', 'prettier'],
-  // required to lint *.vue files
-  plugins: ['prettier', 'html'],
-
-  rules: {
-    'prettier/prettier': ['error']
-  }
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+      "standard",
+      "plugin:vue/essential",
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint",
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+    "rules": {
+    }
 };
