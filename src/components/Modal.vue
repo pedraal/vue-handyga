@@ -30,10 +30,10 @@ export default {
   },
   methods: {
     accept () {
-      this.$handyga.accept()
+      this.$handyga.accept(() => this.$emit('updateUI', 'none'))
     },
     reject () {
-      this.$handyga.reject()
+      this.$handyga.reject(() => this.$emit('updateUI', 'none'))
     },
     leave () {
       this.$handyga.leave()

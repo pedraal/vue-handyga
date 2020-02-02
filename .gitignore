@@ -1,8 +1,7 @@
 node_modules
 npm-debug.log
-*.bak
 docs/.vuepress/dist
 .npmignore
 yarn-error.log
-dist/
 deploy.sh
+.vscode

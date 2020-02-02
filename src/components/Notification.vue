@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import { selectLocale } from '../utils'
 
 export default {
@@ -51,12 +50,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions('gaStore', ['updateUI']),
     accept () {
-      this.$handyga.accept()
+      this.$handyga.accept(() => this.$emit('updateUI', 'none'))
     },
     openModal () {
-      this.$store.dispatch('gaStore/updateUI', 'modal')
+      this.$emit('updateUI', 'modal')
     }
   }
 }
