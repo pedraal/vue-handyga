@@ -1,7 +1,6 @@
 node_modules
 npm-debug.log
 *.bak
-nuxt
 docs/.vuepress/dist
 .npmignore
 yarn-error.log
