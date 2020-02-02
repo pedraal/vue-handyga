@@ -1,11 +1,12 @@
 {
   "name": "vue-handy-ga",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vue.js plugin making Google Analytics integration handy!",
   "main": "dist/vue-handy-ga.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "nuxt"
   ],
   "scripts": {
     "test": "exit 0;",
