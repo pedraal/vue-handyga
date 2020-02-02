@@ -1,10 +1,10 @@
 <template>
   <div>
     <transition name="notification">
-      <Notification v-if="UIstate === 'notification'" />
+      <Notification v-if="UIstate === 'notification'" @updateUI='UIstate = $event'/>
     </transition>
     <transition name="modal">
-      <Modal v-if="UIstate === 'modal'" />
+      <Modal v-if="UIstate === 'modal'" @updateUI='UIstate = $event'/>
     </transition>
   </div>
 </template>
@@ -13,23 +13,25 @@
 import Notification from './components/Notification.vue'
 import Modal from './components/Modal.vue'
 
-import { mapGetters } from 'vuex'
-
 export default {
   components: {
     Notification,
     Modal
   },
+  data () {
+    return {
+      UIstate: 'none'
+    }
+  },
   computed: {
-    ...mapGetters('gaStore', ['UIstate'])
   },
   mounted () {
-    this.$handyga.processConsent()
+    this.$handyga.processConsent(() => { this.UIstate = 'notification' })
 
     const self = this
     if (this.$handyga.options.mandatory) {
       window.addEventListener('click', () => {
-        self.$handyga.accept()
+        self.$handyga.accept(() => { self.UIstate = 'none' })
       })
     }
   }

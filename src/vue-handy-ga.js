@@ -1,4 +1,4 @@
-import { devMode, registerVuexStore } from './utils'
+import { devMode } from './utils'
 
 import Cookies from 'js-cookie'
 
@@ -19,27 +19,6 @@ export default class VueHandyGa {
   static register = (Vue, { options }, store) => {
     if (options.builtin) {
       Vue.component('VueHandyGa', VueHandyGaComponent)
-      registerVuexStore(store, 'gaStore', {
-        namespaced: true,
-        state: {
-          UIstate: 'none'
-        },
-        getters: {
-          UIstate (state) {
-            return state.UIstate
-          }
-        },
-        actions: {
-          updateUI ({ commit }, payload) {
-            commit('UPDATE_UI', payload)
-          }
-        },
-        mutations: {
-          UPDATE_UI (state, payload) {
-            state.UIstate = payload
-          }
-        }
-      })
     }
     Vue.prototype.$handyga = {
       options,
@@ -63,21 +42,21 @@ export default class VueHandyGa {
         ga('create', options.gaID, 'auto')
         ga('send', 'pageview')
       },
-      accept () {
+      accept (callback) {
         Cookies.set('hasConsent', true, { expires: 395 })
         this.start()
-        if (options.builtin) {
-          store.dispatch('gaStore/updateUI', 'none')
+        if (callback) {
+          callback()
         }
       },
-      reject () {
+      reject (callback) {
         const GA_COOKIE_NAMES = ['__utma', '__utmb', '__utmc', '__utmz', '_ga', '_gat', '_gid']
         Cookies.set(`ga-disable-${options.gaID}`, true, { expires: 395 })
         window[`ga-disable-${options.gaID}`] = true
         Cookies.set('hasConsent', false, { expires: 395 })
         GA_COOKIE_NAMES.forEach(cookieName => Cookies.remove(cookieName))
-        if (options.builtin) {
-          store.dispatch('gaStore/updateUI', 'none')
+        if (callback) {
+          callback()
         }
       },
       /* eslint-enable */
@@ -107,11 +86,6 @@ export default class VueHandyGa {
         if (doNotTrack === 'no' || doNotTrack === '0') {
           Cookies.set('hasConsent', true, { expires: 395 })
           this.start()
-          return
-        }
-
-        if (this.options.builtin) {
-          store.dispatch('gaStore/updateUI', 'notification')
           return
         }
 
