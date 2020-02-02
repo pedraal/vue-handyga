@@ -22,7 +22,7 @@ export default class VueHandyGa {
     }
     Vue.prototype.$handyga = {
       options,
-/* eslint-disable */
+      /* eslint-disable */
       start () {
         if (!options.gaID) return console.log('[vue-handy-ga] No gaID provided')
         ;(function (i, s, o, g, r, a, m) {
@@ -98,10 +98,6 @@ export default class VueHandyGa {
 
   static mixin = () => ({})
 
-  /// /////////////////////////////////
-  // YOU MAY NOT NEED TO EDIT BELOW //
-  /// /////////////////////////////////
-
   initialized = false
 
   init (Vue, store) {
@@ -128,20 +124,16 @@ export function install (Vue) {
   }
 
   Vue.mixin({
-    /**
-     * VueHandyGa init hook, injected into each instances init hooks list.
-     */
     beforeCreate () {
-      const { vueHandyGaSettings, store, parent } = this.$options
+      const { vueHandyGaSettings, parent } = this.$options
 
       let instance = null
       if (vueHandyGaSettings) {
         instance = typeof vueHandyGaSettings === 'function' ? new vueHandyGaSettings() : new VueHandyGa(vueHandyGaSettings) /* eslint-disable-line */
-        // Inject store
-        instance.init(Vue, store)
+        instance.init(Vue)
       } else if (parent && parent.__$VueHandyGaInstance) {
         instance = parent.__$VueHandyGaInstance
-        instance.init(Vue, parent.$store)
+        instance.init(Vue)
       }
     },
 

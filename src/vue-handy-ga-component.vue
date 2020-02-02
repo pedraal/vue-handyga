@@ -30,8 +30,10 @@ export default {
 
     const self = this
     if (this.$handyga.options.mandatory) {
-      window.addEventListener('click', () => {
+      window.addEventListener('click', function me () {
         self.$handyga.accept(() => { self.UIstate = 'none' })
+        console.log('test')
+        window.removeEventListener('click', me)
       })
     }
   }
@@ -39,8 +41,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 .notification-enter-active {
   animation: notification-in 0.5s ease-in-out;
 }
