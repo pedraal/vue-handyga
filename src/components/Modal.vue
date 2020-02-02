@@ -5,7 +5,7 @@
         <h2>{{locales.modalTitle}}</h2>
       </div>
       <div class="divider"></div>
-      <div class="modal-body">
+      <div class="modal-body handyga-modal-body">
         <p v-html="parseMD(locales.modalBody)"></p>
       </div>
       <div class="divider"></div>
@@ -93,5 +93,14 @@ export default {
       }
     }
   }
+}
+</style>
+
+<style lang="scss">
+.handyga-modal-body a,
+.handyga-modal-body a:link,
+.handyga-modal-body a:visited{
+  color: white;
+  text-decoration: underline;
 }
 </style>
