@@ -32,7 +32,6 @@ export default {
     if (this.$handyga.options.mandatory) {
       window.addEventListener('click', function me () {
         self.$handyga.accept(() => { self.UIstate = 'none' })
-        console.log('test')
         window.removeEventListener('click', me)
       })
     }

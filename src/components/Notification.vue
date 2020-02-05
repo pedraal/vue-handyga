@@ -41,12 +41,11 @@
 </template>
 
 <script>
-import { selectLocale } from '../utils'
 
 export default {
   computed: {
     locales () {
-      return selectLocale()
+      return this.$handyga.locales().en
     }
   },
   methods: {
