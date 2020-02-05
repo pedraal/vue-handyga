@@ -1,4 +1,5 @@
 import { devMode } from './utils'
+import locales from './locales.json'
 
 import Cookies from 'js-cookie'
 
@@ -22,6 +23,9 @@ export default class VueHandyGa {
     }
     Vue.prototype.$handyga = {
       options,
+      locales () {
+        return locales
+      },
       /* eslint-disable */
       start () {
         if (!options.gaID) return console.log('[vue-handy-ga] No gaID provided')

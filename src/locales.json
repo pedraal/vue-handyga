@@ -16,23 +16,5 @@
         "leave": "Leave the website"
       }
     }
-  },
-  "fr": {
-    "notification": "Ce site web utilise les cookies pour mesurer l'audience et suivre l'activité des utilisateurs. En cliquant sur le bouton Accepter, vous nous autorisez à déposer des cookies.",
-    "modalTitle": "Politique d'utilisations des cookies",
-    "modalBody": "Afin de suivre l'audience et l'activité sur ce site, nous utilisons le service Google Analytics. Cela nous permet d'adapter les ressources web et de repérer certains disfonctionnements. Aucune de ces données ne sont communiquées à un tier à des fins commerciales. Ce site est et restera exempt de publicités. Pour lire la politique de cookies officielle de Google, <a href='https://support.google.com/analytics/answer/6004245' target='_blank'>suivez ce lien</a>.",
-    "actions": {
-      "accept": "Accepter",
-      "refuse": "Refuser",
-      "more": "Plus d'infos"
-    },
-    "mandatory": {
-      "notification": "Ce site web utilise les cookies pour mesurer l'audience et suivre l'activité des utilisateurs. En continuant à naviguer sur le site, vous nous autorisez à déposer des cookies.",
-      "actions": {
-        "accept": "Ok",
-        "more": "Plus d'infos",
-        "leave": "Quitter le site"
-      }
-    }
   }
 }

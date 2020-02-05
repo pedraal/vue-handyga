@@ -19,13 +19,12 @@
 </template>
 
 <script>
-import { selectLocale } from '../utils'
 import marked from 'marked'
 
 export default {
   computed: {
     locales () {
-      return selectLocale()
+      return this.$handyga.locales().en
     }
   },
   methods: {
