@@ -29,7 +29,7 @@ export default {
     this.$handyga.processConsent(() => { this.UIstate = 'notification' })
 
     const self = this
-    if (this.$handyga.options.mandatory) {
+    if (this.$handyga.options.mandatory && !!this.$handyga.options.gaID) {
       window.addEventListener('click', function me () {
         self.$handyga.accept(() => { self.UIstate = 'none' })
         window.removeEventListener('click', me)
