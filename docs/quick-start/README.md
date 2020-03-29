@@ -84,7 +84,7 @@ Then you can use it the same way you would in a Vue Single File Component.
 
 ## Examples
 
-You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handyga):
+You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handyga/tree/master/examples):
 
 - Basic: In this example you will find how to use the plugin without the built-in UI.
 - Built-in consent: This example is showing how to integrate the built-in UI in any Vue.js project.

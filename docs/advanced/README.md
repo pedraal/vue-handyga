@@ -15,28 +15,28 @@ List of available options / customizations
 
 #### **`builtin`**
 * **Default**: `true`
-* **Type**: Bool
-* **Description**: Define if you will be using the built-in UI component.
+* **Type**: `Boolean`
+* **Description**: Defines if you will be using the built-in UI component.
 
 #### **`mandatory`**
 * **Default**: `false`
-* **Type**: Bool
-* **Description**: Define if the user will have to accept cookie deposit to stay on website.
+* **Type**: `Boolean`
+* **Description**: Defines if the user will have to accept cookie deposit to stay on website.
 
 #### **`bgColor`**
 * **Default**: `false`
-* **Type**: String
-* **Description**: Define built-in component background.
+* **Type**: `String`
+* **Description**: Defines built-in component background.
 
 #### **`textColor`**
 * **Default**: `false`
-* **Type**: String
-* **Description**: Define built-in component text color.
+* **Type**: `String`
+* **Description**: Defines built-in component text color.
 
 #### **`customLocales`**
 * **Default**: `null`
-* **Type**: JSON
-* **Description**: Define built-in component texts. It as to follow the [given format](#customize-built-in-ui).
+* **Type**: `JSON`
+* **Description**: Defines built-in component texts. It as to follow the [given format](#customize-built-in-ui).
 
 
 ## Cookies
