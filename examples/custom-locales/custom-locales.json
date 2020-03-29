@@ -1,0 +1,18 @@
+{
+  "notification": "Foobar",
+  "modalTitle": "Foobar policy",
+  "modalBody": "Lorem ipsum",
+  "actions": {
+    "accept": "Not refusing",
+    "refuse": "Not accepting",
+    "more": "Maybe some infos"
+  },
+  "mandatory": {
+    "notification": "Foobar",
+    "actions": {
+      "accept": "Not refusing",
+      "more": "Maybe some infos",
+      "leave": "Not staying on the website"
+    }
+  }
+}

@@ -12,7 +12,8 @@ export default class VueHandyGa {
       mandatory: false,
       gaID: null,
       bgColor: '#5c6bc0',
-      textColor: 'white'
+      textColor: 'white',
+      customLocales: null
     }
     this.options = { ...defaults, ...options }
   }
@@ -24,7 +25,7 @@ export default class VueHandyGa {
     Vue.prototype.$handyga = {
       options,
       locales () {
-        return locales
+        return options.customLocales || locales
       },
       /* eslint-disable */
       start () {
