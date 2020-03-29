@@ -78,7 +78,7 @@ export default : {
 ```
 
 ::: tip
-The you can use it the same way you would in a Vue Single File Component.
+Then you can use it the same way you would in a Vue Single File Component.
 :::
 
 
