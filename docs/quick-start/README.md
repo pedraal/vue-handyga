@@ -2,14 +2,12 @@
 sidebarDepth: 2
 ---
 
-# Quick start <Badge text="v1.0.0"/>
+# Quick start <Badge text="v1.2.0"/>
 
 ## Introduction
 
-The goal of this Vue plugin is to let you integrate Google Analytics faster.
-In this guide we will walk through the entire process to get this npm module and to get it running in your app.
-
-We'll also learn how to use built-in consent component and how to build yours using this plugin.
+Having an audience monitoring system is not a feature of your project. This shouldn't be a time consuming task when you bootstrap your new project.
+That's why we designed Vue Handy GA to let you quickly plug Google Analytics in your web project.
 
 ## Installation
 
@@ -21,15 +19,11 @@ npm install vue-handy-ga
 yarn add vue-handy-ga
 ```
 
-## Integration
+## Usage
 
-### Using built-in component
+### Vue.js
 
-::: warning
-As the built-in UI registers a Vuex store module to handle UI state, you'll need to install Vuex and import it in your project
-:::
-
-In your index.js file:
+In your `index.js` file :
 
 ```js
 import Vue from 'vue'
@@ -53,7 +47,7 @@ new Vue({
 })
 ```
 
-In your Vue file
+In your Single File Component :
 
 ```vue
 <template>
@@ -67,51 +61,31 @@ export default {}
 </script>
 ```
 
-### Without built-in component
+### Nuxt.js
 
-In your index.js file:
+In your `nuxt.config.js` file :
 
 ```js
-import Vue from 'vue'
-import VueHandyGa from 'vue-handy-ga'
-
-import App from './App.vue'
-
-Vue.use(VueHandyGa)
-
-const options = {
-  gaID: 'UA-XXXXXXXX-X'
-  builtin: false
+export default : {
+  // [...]
+  modules: [
+    ['vue-handy-ga/nuxt', {
+      gaID: 'UA-XXXXXXXX-X'
+    }]
+  ]
+  // [...]
 }
-
-new Vue({
-  el: '#app',
-  vueHandyGaSettings: new VueHandyGa(options),
-  render: createElement => createElement(App)
-})
 ```
 
-In your Vue file
+::: tip
+The you can use it the same way you would in a Vue Single File Component.
+:::
 
-```vue
-<template>
-  <div>
-    <h1>Hello world!</h1>
-  </div>
-</template>
-
-<script>
-export default {
-  mounted() {
-    this.$handyga.start()
-  }
-}
-</script>
-```
 
 ## Examples
 
 You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handyga):
 
-- Basic: In this example you will find how to use the plugin without the built-in UI
-- Built-in consent: This example is showing how to integrate the built-in UI in any Vue.js project
+- Basic: In this example you will find how to use the plugin without the built-in UI.
+- Built-in consent: This example is showing how to integrate the built-in UI in any Vue.js project.
+- Custom locales: This example is showing how to use custom locales in the built-in UI.

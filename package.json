@@ -1,6 +1,6 @@
 {
   "name": "vue-handy-ga",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Vue.js plugin making Google Analytics integration handy!",
   "main": "dist/vue-handy-ga.js",
   "files": [
