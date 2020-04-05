@@ -17,9 +17,9 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "npx eslint 'src/**/*.{js,vue}'",
-    "lintfix": "npx eslint 'src/**/*.{js,vue}' --fix",
+    "lint:fix": "npx eslint 'src/**/*.{js,vue}' --fix",
     "lint:examples": "npx eslint 'examples/**/*.{js,vue}'",
-    "lintfix:examples": "npx eslint 'examples/**/*.{js,vue}' --fix"
+    "lint:fix:examples": "npx eslint 'examples/**/*.{js,vue}' --fix"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
