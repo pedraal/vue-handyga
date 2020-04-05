@@ -6,46 +6,73 @@ Vue.js plugin making Google Analytics (RGPD friendly) integration easy!
 
 ### 1. Install
 
+Install the npm package using CLI
+
 ```
-yarn add vue-handy-ga
+npm install vue-handy-ga
 # or
-npm i vue-handy-ga --save
+yarn add vue-handy-ga
 ```
 
-### 2. Plug-in
+### 2. Usage
+
+### Vue.js
+
+In your `index.js` file :
 
 ```js
+import Vue from 'vue'
+import Vuex from 'vuex'
 import VueHandyGa from 'vue-handy-ga'
 
+import App from './App.vue'
+
+Vue.use(Vuex)
 Vue.use(VueHandyGa)
 
 const options = {
-  gaID: 'UA-XXXXXXXX-X',
-  builtin: false //default: true
+  gaID: 'UA-XXXXXXXX-X'
 }
 
 new Vue({
-  // your vue config
-  vueHandyGaSettings: new VueHandyGa(),
+  el: '#app',
+  store: new Vuex.Store(),
+  vueHandyGaSettings: new VueHandyGa(options),
+  render: createElement => createElement(App)
 })
 ```
 
-### 3. Use in your components
+In your Single File Component :
 
 ```vue
 <template>
-  <!-- If using built-in UI -->
-  <vue-handy-ga />
+  <div>
+    <vue-handy-ga />
+  </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    console.log(this.$handyga)
-  }
-}
+export default {}
 </script>
 ```
+
+### Nuxt.js
+
+In your `nuxt.config.js` file :
+
+```js
+export default : {
+  // [...]
+  modules: [
+    ['vue-handy-ga/nuxt', {
+      gaID: 'UA-XXXXXXXX-X'
+    }]
+  ]
+  // [...]
+}
+```
+
+Then you can use it the same way you would in a Vue Single File Component.
 
 ## Documentation
 

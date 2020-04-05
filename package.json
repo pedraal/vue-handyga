@@ -1,6 +1,6 @@
 {
   "name": "vue-handy-ga",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Vue.js plugin making Google Analytics integration handy!",
   "main": "dist/vue-handy-ga.js",
   "files": [
@@ -17,9 +17,9 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "npx eslint 'src/**/*.{js,vue}'",
-    "lintfix": "npx eslint 'src/**/*.{js,vue}' --fix",
+    "lint:fix": "npx eslint 'src/**/*.{js,vue}' --fix",
     "lint:examples": "npx eslint 'examples/**/*.{js,vue}'",
-    "lintfix:examples": "npx eslint 'examples/**/*.{js,vue}' --fix"
+    "lint:fix:examples": "npx eslint 'examples/**/*.{js,vue}' --fix"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
@@ -45,7 +45,7 @@
   "bugs": {
     "url": "https://github.com/pedraal/vue-handyga/issues"
   },
-  "homepage": "https://github.com/pedraal/vue-handyga#readme",
+  "homepage": "https://pedraal.github.io/vue-handyga/",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
