@@ -6,8 +6,7 @@ sidebarDepth: 2
 
 ## Introduction
 
-Having an audience monitoring system is not a feature of your project. This shouldn't be a time consuming task when you bootstrap your new project.
-That's why we designed Vue Handy GA to let you quickly plug Google Analytics in your web project.
+This guide is made to help you quickly setup Google Analytics and cookie consent request in your new web project using plugin's built-in UI. To customize the built-in UI, refer to the [available options](/advanced/#options). To build a custom cookies consent handler, refer to the [API](/advanced/#api) in the advanced section.
 
 ## Installation
 
@@ -88,4 +87,4 @@ You'll find 2 examples in the [Github repo](https://github.com/pedraal/vue-handy
 
 - Basic: In this example you will find how to use the plugin without the built-in UI.
 - Built-in consent: This example is showing how to integrate the built-in UI in any Vue.js project.
-- Custom locales: This example is showing how to use custom locales in the built-in UI.
+- Custom locales: This example is showing how to customize locales in the built-in UI.

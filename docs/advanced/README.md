@@ -38,24 +38,6 @@ List of available options / customizations
 * **Type**: `JSON`
 * **Description**: Defines built-in component texts. It as to follow the [given format](#customize-built-in-ui).
 
-
-## Cookies
-
-To handle user consent and Google Analytics, this plugin delivers 2 types of cookies:
-
-- **Consent related cookies**: To store user's consent, a `hasConsent` cookie is delivered, true or false depending on user's choice. Another cookie (`ga-disable-YOUR-GAID`) is delivered if the user refuses your tracking request which disable Google's script.
-- **Google Analytics cookies**: [Official docs](https://developers.google.com/analytics/devguides/collection/analyticsjs)
-
-## Accessing plugin inside Vue instance
-
-As the plugin is globally registered, you can access its propreties and methods like so:
-
-```js
-this.$handyga.proprety
-// OR
-this.$handyga.method()
-```
-
 ## API
 
 #### **`.options`**
@@ -89,6 +71,16 @@ This function brings the logic behing consent handling. It checks the trackablit
   - you are using the built-in component, a Vuex action is dispatched to mutate UI's state, rendering a notification component prompting for user's consent.
   - you are not using the built-in component, you can pass a callback to this function to add your own UI logic.
 
+## Accessing plugin inside Vue instance
+
+As the plugin is globally registered, you can access its propreties and methods like so:
+
+```js
+this.$handyga.proprety
+// OR
+this.$handyga.method()
+```
+
 ## Built-in UI
 
 To make Google Analytics integration really easy, according to RGPD requirements, the plugin has a built-in component handling consent request and cookie deposit for you.
@@ -97,7 +89,7 @@ Simply register this component in your main vue component. On mount, it will cal
 
 ### Customize built-in UI
 
-You can customize the built-in ui its components to follow your web app design. Pass hexcodes to [`bgColor`](#bgcolor) and [`textColor`](#textcolor) options to customize colors and pass your own JSON [`customLocales`](#customlocales) to customize your cookie consent request. This plugin supports Markdown to you can full customize the built-in UI.
+You can customize the built-in ui its components to follow your web app design. Pass hexcodes to [`bgColor`](#bgcolor) and [`textColor`](#textcolor) options to customize colors and pass your own JSON [`customLocales`](#customlocales) to customize your cookie consent request. This plugin supports Markdown so you can full customize the built-in UI.
 
 ::: warning
 If you choose to use [`customLocales`](#customlocales), you will have to keep the following format
@@ -123,3 +115,10 @@ If you choose to use [`customLocales`](#customlocales), you will have to keep th
 }
 ```
 :::
+
+## Cookies
+
+To handle user consent and Google Analytics, this plugin delivers 2 types of cookies:
+
+- **Consent related cookies**: To store user's consent, a `hasConsent` cookie is delivered, true or false depending on user's choice. Another cookie (`ga-disable-YOUR-GAID`) is delivered if the user refuses your tracking request which disable Google's script.
+- **Google Analytics cookies**: [Official docs](https://developers.google.com/analytics/devguides/collection/analyticsjs)
