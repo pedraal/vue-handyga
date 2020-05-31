@@ -2,17 +2,16 @@
   <div class="modal-container">
     <div class="modal-wrapper" @click.stop :style="{background: $handyga.options.bgColor, color: $handyga.options.textColor}">
       <div class="modal-header">
-        <h2>{{locales.modalTitle}}</h2>
+        <h2>{{locales.title}}</h2>
       </div>
       <div class="divider"></div>
       <div class="modal-body handyga-modal-body">
-        <p v-html="parseMD(locales.modalBody)"></p>
+        <p v-html="parseMD(locales.body)"></p>
       </div>
       <div class="divider"></div>
       <div class="modal-action">
-        <div @click="accept" class="modal-action-primary">{{locales.actions.accept}}</div>
-        <div v-if="!$handyga.options.mandatory" @click="reject" class="modal-action-secondary">{{locales.actions.refuse}}</div>
-        <div v-else @click="leave" class="modal-action-secondary">{{locales.mandatory.actions.leave}}</div>
+        <div @click="accept" class="modal-action-primary">{{locales.accept}}</div>
+        <div @click="refuse" class="modal-action-secondary">{{locales.refuse}}</div>
       </div>
     </div>
   </div>
@@ -22,20 +21,22 @@
 import marked from 'marked'
 
 export default {
-  computed: {
-    locales () {
-      return this.$handyga.locales()
+  props: {
+    locales: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {
     accept () {
       this.$handyga.accept(() => this.$emit('updateUI', 'none'))
     },
-    reject () {
-      this.$handyga.reject(() => this.$emit('updateUI', 'none'))
-    },
-    leave () {
-      this.$handyga.leave()
+    refuse () {
+      if (this.$handyga.options.mandatory) {
+        this.$handyga.leave()
+      } else {
+        this.$handyga.reject(() => this.$emit('updateUI', 'none'))
+      }
     },
     parseMD (str) {
       return marked(str)

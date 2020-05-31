@@ -29,11 +29,17 @@ export default {
 </script>
 
 <style>
+h1 {
+  margin: 15px 30px;
+  width: 300px;
+  text-align: center;
+}
 a {
   display: block;
   font-weight: bold;
   cursor: pointer;
-  margin: 30px;
+  margin: 15px 30px;
+  width: 300px;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0.1);
   text-align: center;

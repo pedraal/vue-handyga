@@ -24,8 +24,17 @@ export default class VueHandyGa {
     }
     Vue.prototype.$handyga = {
       options,
-      locales () {
-        return options.customLocales || locales
+      localesBuilder (checkedLocales) {
+        const keys = Object.keys(locales)
+        const validator = function (str, fallback) {
+          return str === '' ? fallback : str
+        }
+
+        const obj = {}
+        keys.forEach(key => {
+          obj[key] = validator(checkedLocales[key] ? checkedLocales[key] : '', locales[key])
+        })
+        return obj
       },
       /* eslint-disable */
       start () {
