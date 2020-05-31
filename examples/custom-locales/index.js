@@ -7,7 +7,7 @@ import App from './App.vue'
 Vue.use(VueHandyGa)
 
 const options = {
-  gaID: '',
+  gaID: 'MY-GA-ID',
   customLocales
 
 }
