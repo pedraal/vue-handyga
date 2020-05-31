@@ -24,9 +24,7 @@ export default class VueHandyGa {
     }
     Vue.prototype.$handyga = {
       options,
-      locales () {
-        return options.customLocales || locales
-      },
+      locales: options.customLocales || locales,
       /* eslint-disable */
       start () {
         if (!options.gaID) return console.log('[vue-handy-ga] No gaID provided')

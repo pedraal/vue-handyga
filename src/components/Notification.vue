@@ -45,7 +45,7 @@
 export default {
   computed: {
     locales () {
-      return this.$handyga.locales()
+      return this.$handyga.locales
     }
   },
   methods: {
