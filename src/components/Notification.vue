@@ -22,19 +22,16 @@
           />
         </svg>
       </div>
-      <p v-if="!$handyga.options.mandatory">
+      <p>
         {{ locales.notification }}
-      </p>
-      <p v-else>
-        {{ locales.mandatory.notification }}
       </p>
     </div>
     <div class="action">
       <div @click="accept" class="action-primary">
-        {{ locales.actions.accept }}
+        {{ locales.accept }}
       </div>
       <div @click="openModal" class="action-secondary">
-        {{ locales.actions.more }}
+        {{ locales.more }}
       </div>
     </div>
   </div>
@@ -43,9 +40,10 @@
 <script>
 
 export default {
-  computed: {
-    locales () {
-      return this.$handyga.locales
+  props: {
+    locales: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {

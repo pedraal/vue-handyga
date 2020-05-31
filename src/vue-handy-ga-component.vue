@@ -1,10 +1,10 @@
 <template>
   <div>
     <transition name="notification">
-      <Notification v-if="UIstate === 'notification'" @updateUI='UIstate = $event'/>
+      <Notification v-if="UIstate === 'notification'" @updateUI='UIstate = $event' :locales="notificationLocales"/>
     </transition>
     <transition name="modal">
-      <Modal v-if="UIstate === 'modal'" @updateUI='UIstate = $event'/>
+      <Modal v-if="UIstate === 'modal'" @updateUI='UIstate = $event' :locales="modalLocales"/>
     </transition>
   </div>
 </template>
@@ -14,6 +14,12 @@ import Notification from './components/Notification.vue'
 import Modal from './components/Modal.vue'
 
 export default {
+  props: {
+    locales: {
+      type: Object,
+      default: () => {}
+    }
+  },
   components: {
     Notification,
     Modal
@@ -24,6 +30,24 @@ export default {
     }
   },
   computed: {
+    LOCALES () {
+      return this.$handyga.localesBuilder({ ...this.$handyga.options.customLocales, ...this.locales })
+    },
+    notificationLocales () {
+      return {
+        notification: this.$handyga.options.mandatory ? this.LOCALES.mandatoryNotification : this.LOCALES.notification,
+        accept: this.LOCALES.accept,
+        more: this.LOCALES.more
+      }
+    },
+    modalLocales () {
+      return {
+        title: this.LOCALES.modalTitle,
+        body: this.LOCALES.modalBody,
+        accept: this.$handyga.options.mandatory ? this.LOCALES.mandatoryAccept : this.LOCALES.accept,
+        refuse: this.$handyga.options.mandatory ? this.LOCALES.mandatoryRefuse : this.LOCALES.refuse
+      }
+    }
   },
   mounted () {
     this.$handyga.processConsent(() => { this.UIstate = 'notification' })
