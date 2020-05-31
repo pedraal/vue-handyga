@@ -1,18 +1,11 @@
 {
-  "notification": "Foobar",
-  "modalTitle": "Foobar policy",
-  "modalBody": "Lorem ipsum",
-  "actions": {
-    "accept": "Not refusing",
-    "refuse": "Not accepting",
-    "more": "Maybe some infos"
-  },
-  "mandatory": {
-    "notification": "Foobar",
-    "actions": {
-      "accept": "Not refusing",
-      "more": "Maybe some infos",
-      "leave": "Not staying on the website"
-    }
-  }
+  "notification": "Foo bar",
+  "mandatoryNotification": "Mandatory Foo bar",
+  "modalTitle": "Lorem",
+  "modalBody": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eum voluptates nostrum enim quaerat quae, necessitatibus beatae animi ducimus laboriosam pariatur expedita esse iste aspernatur deleniti laborum aliquam ex tempora?",
+  "accept": "From file",
+  "mandatoryAccept": "Ok",
+  "refuse": "Refuse",
+  "mandatoryRefuse": "Leave the website",
+  "more": "More infos"
 }

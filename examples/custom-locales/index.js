@@ -9,7 +9,6 @@ Vue.use(VueHandyGa)
 const options = {
   gaID: 'MY-GA-ID',
   customLocales
-
 }
 
 if (document.getElementById('app')) {

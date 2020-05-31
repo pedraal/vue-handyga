@@ -1,7 +1,8 @@
 <template>
   <div>
     Hello {{ msg }}!
-    <vue-handy-ga />
+    <p></p>
+    <vue-handy-ga :locales="{notification: 'Locales from prop'}"/>
   </div>
 </template>
 
